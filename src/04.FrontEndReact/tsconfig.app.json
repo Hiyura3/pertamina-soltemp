@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@services/*": ["./02.FrontEndReact.Services/*"],
+      "@infrastructure/*": ["./03.FrontEndReact.Infrastructure/*"],
+      "@logics/*": ["./04.FrontEndReact.Logics/*"],
+      "@webui/*": ["./05.FrontEndReact.WebUi/*"]
+    }
+  },
+  "include": [
+    "./02.FrontEndReact.Services/**/*.ts",
+    "./03.FrontEndReact.Infrastructure/**/*.ts",
+    "./04.FrontEndReact.Logics/**/*.ts",
+    "./05.FrontEndReact.WebUi/**/*.ts",
+    "./05.FrontEndReact.WebUi/**/*.tsx"
+  ]
+}

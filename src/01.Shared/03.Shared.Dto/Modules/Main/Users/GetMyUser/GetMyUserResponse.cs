@@ -1,0 +1,5 @@
+namespace SolutionTemplate2.Shared.Dto.Modules.Main.Users.GetMyUser;
+
+public sealed record GetMyUserResponse : Response<UserItem>
+{
+}

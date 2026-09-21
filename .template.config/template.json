@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Pertamina Persero",
+  "classifications": ["Solution", "Web", "Pacer"],
+  "tags": { "type": "solution", "language": "C#" },
+  "groupIdentity": "Pertamina.Templates.SolutionTemplate2",
+  "identity": "Pertamina.Templates.SolutionTemplate2.Pacer",
+  "name": "Solution Template v2 (Pacer)",
+  "shortName": "ptmnsln2",
+  "sourceName": "SolutionTemplate2",
+  "preferNameDirectory": true,
+  "description": "Pertamina Clean Architecture solution with Blazor and Pacer-skinned React frontends.",
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "**/node_modules/**",
+            "**/.git/**",
+            "**/dist/**",
+            "**/*.nupkg",
+            "**/pack-output/**"
+          ]
+        }
+      ]
+    }
+  ]
+}

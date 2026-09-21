@@ -1,0 +1,5 @@
+{
+  "ui": "react",
+  "reactBaseUrl": "https://localhost:44323/soltem2",
+  "blazorBaseUrl": "https://localhost:44322"
+}

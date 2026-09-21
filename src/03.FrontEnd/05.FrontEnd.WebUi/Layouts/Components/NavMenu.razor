@@ -1,0 +1,11 @@
+<MudNavMenu Rounded="true" Margin="Margin.Dense">
+    <SolutionTemplate2.FrontEnd.WebUi.Modules.Main.Components.Menu />
+    <SolutionTemplate2.FrontEnd.WebUi.Modules.Administration.Components.Menu />
+    <SolutionTemplate2.FrontEnd.WebUi.Modules.MasterData.Components.Menu />
+    <SolutionTemplate2.FrontEnd.WebUi.Modules.Examples.Components.Menu />
+    <MudNavLink Href="@MainRouteFor.About"
+                Match="NavLinkMatch.Prefix"
+                Icon="@Icons.Material.TwoTone.Info">
+        @MainDisplayTextFor.About
+    </MudNavLink>
+</MudNavMenu>

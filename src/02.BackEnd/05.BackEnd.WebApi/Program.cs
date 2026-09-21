@@ -1,0 +1,34 @@
+using SolutionTemplate2.BackEnd.WebApi;
+using SolutionTemplate2.BackEnd.Infrastructure;
+using SolutionTemplate2.BackEnd.Infrastructure.AppConfigBackEnd;
+using SolutionTemplate2.BackEnd.Infrastructure.BackgroundJob;
+using SolutionTemplate2.BackEnd.Infrastructure.Database;
+using SolutionTemplate2.BackEnd.Infrastructure.HealthCheck;
+using SolutionTemplate2.BackEnd.Infrastructure.PathBase;
+using SolutionTemplate2.BackEnd.Infrastructure.Secret;
+using SolutionTemplate2.BackEnd.Logics;
+using Scalar.AspNetCore;
+
+var builder = WebApplication.CreateBuilder(args);
+var frontEndUi = FrontEndUiSettings.Load(builder.Environment);
+builder.Logging.AddConsole();
+Console.WriteLine($"Front-end UI: {frontEndUi.Ui} -> {frontEndUi.SelectedBaseUrl}");
+var appConfigBackEndOptions = builder.GetAppConfigBackEndOptions();
+var secrets = await builder.GetSecretsAsync();
+builder.AddInfrastructure(appConfigBackEndOptions, secrets);
+builder.Services.AddLogics(builder.Configuration);
+
+var app = builder.Build();
+await app.InitializeDatabase(appConfigBackEndOptions.IsDataSeedingEnabled);
+app.UseExceptionHandler();
+app.UseAndCheckPathBase(appConfigBackEndOptions.PathBase);
+app.UseHttpsRedirection();
+app.UseHealthCheckService(appConfigBackEndOptions.PathBase);
+app.UseStaticFiles();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseBackgroundJobService(appConfigBackEndOptions.PathBase, secrets[SecretKeyFor.BackgroundJobDashboardUsername], secrets[SecretKeyFor.BackgroundJobDashboardKataKunci]);
+app.MapOpenApi();
+app.MapScalarApiReference();
+app.RegisterEndpoints(typeof(Program).Assembly);
+await app.RunAsync();

@@ -146,14 +146,7 @@ export function NavigationMenuItem({
   const inner = (
     <>
       {icon ? (
-        <span
-          className={cn(
-            "inline-flex shrink-0 text-current",
-            isSub && (resolvedActive ? "opacity-75" : "opacity-50"),
-          )}
-        >
-          {renderNavigationIcon(icon, iconPx)}
-        </span>
+        <span className="inline-flex shrink-0 text-current">{renderNavigationIcon(icon, iconPx)}</span>
       ) : null}
       {showLabel ? <span className="min-w-0 flex-1 truncate text-left">{label}</span> : null}
       {showBadge ? (

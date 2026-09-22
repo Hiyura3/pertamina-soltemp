@@ -13,7 +13,7 @@ export function ButtonPrimary({
   type?: "button" | "submit";
 }) {
   return (
-    <Button variant="primary" size="md" type={type} onClick={onClick} disabled={disabled}>
+    <Button variant="primary" size="medium" type={type} onClick={onClick} disabled={disabled}>
       {children}
     </Button>
   );

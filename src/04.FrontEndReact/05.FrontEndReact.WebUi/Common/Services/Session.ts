@@ -8,7 +8,6 @@ export type SessionUser = {
   email: string;
   role: "Administrator";
   permissions: string[];
-  sandboxBypass?: boolean;
 };
 
 export function getSession(): SessionUser | null {

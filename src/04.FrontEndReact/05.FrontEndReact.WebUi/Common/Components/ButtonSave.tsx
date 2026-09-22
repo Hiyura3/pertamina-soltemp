@@ -13,7 +13,7 @@ export function ButtonSave({
   label?: string;
 }) {
   return (
-    <Button variant="primary" size="md" type={type} onClick={onClick} disabled={disabled}>
+    <Button variant="primary" size="medium" type={type} onClick={onClick} disabled={disabled}>
       {label}
     </Button>
   );

@@ -46,7 +46,7 @@ export function AccountInfo({ collapsed = false }: { collapsed?: boolean }) {
             type="button"
             className="block w-full px-3 py-2 text-left text-red-700 hover:bg-red-50"
             onClick={() => {
-              const isIdAMan = session.authenticationType === "IdAMan" && !session.sandboxBypass;
+              const isIdAMan = session.authenticationType === "IdAMan";
               clearSession();
               setOpen(false);
               if (isIdAMan) {

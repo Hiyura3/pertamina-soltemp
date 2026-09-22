@@ -12,7 +12,7 @@ export function ButtonSubmit({
   children?: ReactNode;
 }) {
   return (
-    <Button variant="primary" size="md" type="submit" onClick={onClick} disabled={disabled}>
+    <Button variant="primary" size="medium" type="submit" onClick={onClick} disabled={disabled}>
       {children ?? CommonDisplayTextFor.Submit}
     </Button>
   );

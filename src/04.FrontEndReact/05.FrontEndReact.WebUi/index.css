@@ -3,6 +3,7 @@
 @import "@fontsource/poppins/500.css";
 @import "@fontsource/poppins/600.css";
 @import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
 @import "./pacer-tokens.css";
 
 /*
@@ -14,7 +15,9 @@
   --font-heading: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-sans: "Inter Variable", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "Inter Variable", Inter, Georgia, "Times New Roman", serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-mono:
+    "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
   --radius-xs: 4px;
   --radius-sm: 6px;
@@ -104,9 +107,9 @@
 
   html {
     font-family: var(--font-sans);
-    /* Slightly denser application typography, matching the supplied UI
-       reference while preserving the existing rem-based type hierarchy. */
-    font-size: 15px;
+    /* Root tetap 16px supaya skala rem utilitas Tailwind sama persis dengan
+       pacer-ui-docs (Body/M 16px, Body/S 14px, tinggi kontrol Pacer). */
+    font-size: 16px;
   }
 
   body {

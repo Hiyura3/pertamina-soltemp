@@ -25,7 +25,7 @@ Welcome to Solution Template 2! This template is designed for building robust, s
 *   **Health Monitoring**: AspNetCore.HealthChecks
 *   **FrontEnd (default)**: React 19 + Vite + Pacer design tokens (`src/04.FrontEndReact`)
 *   **FrontEnd (alternate)**: ASP.NET Core Blazor Web App with Interactive Server render mode (`src/03.FrontEnd`)
-*   **FrontEnd Authentication**: OpenID Connect (with IdAMan integration); sandbox/template uses a bypass session
+*   **FrontEnd Authentication**: OpenID Connect (with IdAMan integration)
 *   **User Interface Components**: Pacer (React) · MudBlazor and Blazor-ApexCharts (Blazor)
 *   **Authorization**: Role-based and permission-based authorization
 *   **Logging**: Serilog
@@ -154,7 +154,7 @@ npm ci
 npm run dev
 ```
 
-Open `https://localhost:44323/soltem2/`. Development defaults to mock API + bypass login so the Pacer UI is visible immediately.
+Open `https://localhost:44323/soltem2/`. Development starts with `VITE_USE_MOCK_API=true`, so the Pacer UI renders from sampling data; set it to `false` once the WebApi runs on `https://localhost:44321`.
 
 Switch Blazor ↔ React with `frontend.settings.json` at the solution root:
 

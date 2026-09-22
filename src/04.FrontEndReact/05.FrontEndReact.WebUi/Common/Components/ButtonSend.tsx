@@ -11,7 +11,7 @@ export function ButtonSend({
   disabled?: boolean;
 }) {
   return (
-    <Button variant="outlined" size="md" onClick={onClick} disabled={disabled}>
+    <Button size="medium" onClick={onClick} disabled={disabled}>
       {CommonDisplayTextFor.Send} {entityType}
     </Button>
   );

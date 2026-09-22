@@ -1,26 +1,56 @@
 import { cn } from "../../../lib/utils";
 
-/** Pacer outline/generic icons served from wwwroot/icons (same SVGs as pacer-docs). */
+/** Pacer icon sets shipped in wwwroot/icons (same SVGs as pacer-docs). */
+export const ICON_SETS = ["outline", "generic"] as const;
+export type IconSet = (typeof ICON_SETS)[number];
+
+const DEFAULT_SIZE: Record<IconSet, number> = {
+  outline: 20,
+  generic: 20,
+};
+
+/** Ikon dokumen berwarna merek — dirender sebagai <img>, bukan mask currentColor. */
+const PAINTED_ICONS = new Set(["pdf-file", "doc-file", "excel-file"]);
+
 export function Icon({
   name,
   set = "outline",
-  size = 18,
+  size,
+  alt = "",
   className,
-}: {
+  ...props
+}: Omit<React.ComponentProps<"img">, "src" | "width" | "height" | "name"> & {
   name: string;
-  set?: "outline" | "generic";
+  set?: IconSet;
   size?: number;
-  className?: string;
 }) {
+  const px = size ?? DEFAULT_SIZE[set];
   const src = `${import.meta.env.BASE_URL}icons/${set}/${name}.svg`;
+
+  if (PAINTED_ICONS.has(name)) {
+    return (
+      <img
+        data-slot="icon"
+        src={src}
+        alt={alt}
+        width={px}
+        height={px}
+        className={cn("shrink-0", className)}
+        {...props}
+      />
+    );
+  }
+
   return (
     <span
-      data-slot="pacer-icon"
-      aria-hidden
+      data-slot="icon"
+      aria-hidden={alt ? undefined : true}
+      role={alt ? "img" : undefined}
+      aria-label={alt || undefined}
       className={cn("inline-block shrink-0 bg-current", className)}
       style={{
-        width: size,
-        height: size,
+        width: px,
+        height: px,
         maskImage: `url("${src}")`,
         WebkitMaskImage: `url("${src}")`,
         maskRepeat: "no-repeat",

@@ -4,11 +4,11 @@ import { CommonDisplayTextFor } from "../Statics/DisplayTextFor";
 export function ButtonPublish({
   onClick,
   disabled,
-  size = "sm",
+  size = "small",
 }: {
   onClick: () => void;
   disabled?: boolean;
-  size?: "sm" | "md";
+  size?: "small" | "medium" | "large";
 }) {
   return (
     <Button variant="success" size={size} onClick={onClick} disabled={disabled}>

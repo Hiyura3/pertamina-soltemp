@@ -1,22 +1,17 @@
 import { useState, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { applySandboxBypassSession, isSandboxAuthBypassEnabled } from "../../../Common/Services/SandboxAuth";
-import { SandboxBypassPanel } from "../../../Common/Components/SandboxBypassPanel";
 import { Button } from "../../../Common/Components/Button";
 import { FieldDefault } from "../../../Common/Components/FieldDefault";
 import { appConfigFrontEndOptions } from "@services/AppConfigFrontEnd/AppConfigFrontEndOptions";
 
 export function Login() {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("admin@soltemp.local");
-  const [password, setPassword] = useState("password");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   function onSubmit(event: FormEvent) {
     event.preventDefault();
-    if (isSandboxAuthBypassEnabled()) {
-      applySandboxBypassSession();
-      navigate("/", { replace: true });
-    }
+    // Local login delegates to IdAMan; the credential pair above is only a
+    // placeholder for applications that add their own login endpoint.
+    window.location.assign(`${appConfigFrontEndOptions.authenticationBaseUrl}/Authentication/Internal/Login`);
   }
 
   return (
@@ -25,10 +20,9 @@ export function Login() {
       <h1 className="font-heading text-center text-2xl font-semibold text-primary">Login {appConfigFrontEndOptions.appNickName}</h1>
       <form className="space-y-3 rounded-xl border border-border bg-card p-5 shadow-sm" onSubmit={onSubmit}>
         <FieldDefault label="Email" value={email} onChange={setEmail} required />
-        <FieldDefault label="Password" value={password} onChange={setPassword} required />
-        <Button variant="primary" size="md" className="w-full" type="submit">Masuk</Button>
+        <FieldDefault label="Password" value={password} onChange={setPassword} type="password" required />
+        <Button variant="primary" size="medium" className="w-full" type="submit">Masuk</Button>
       </form>
-      <SandboxBypassPanel context="external" />
     </div>
   );
 }

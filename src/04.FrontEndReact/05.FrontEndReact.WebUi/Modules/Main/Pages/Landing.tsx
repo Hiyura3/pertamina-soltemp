@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { appConfigFrontEndOptions } from "@services/AppConfigFrontEnd/AppConfigFrontEndOptions";
 import { MainRouteFor } from "../Statics/RouteFor";
 import { CommonDisplayTextFor } from "../../../Common/Statics/DisplayTextFor";
-import { SandboxBypassPanel } from "../../../Common/Components/SandboxBypassPanel";
 
 export function Landing() {
   return (
@@ -26,7 +25,6 @@ export function Landing() {
             {CommonDisplayTextFor.Login} {CommonDisplayTextFor.External}
           </Link>
         </div>
-        <SandboxBypassPanel context="landing" />
       </div>
       <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
         <img src={`${import.meta.env.BASE_URL}img/landing.webp`} alt="" className="h-full w-full object-cover" />

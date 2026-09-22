@@ -15,5 +15,5 @@ npm ci
 npm run dev
 ```
 
-Buka `https://localhost:44323/soltem2/`. Default development memakai mock API + bypass login agar template langsung tampil Pacer.
+Buka `https://localhost:44323/soltem2/`. Default development memakai mock API agar template langsung tampil Pacer; login tetap lewat IdAMan.
 Set `VITE_USE_MOCK_API=false` jika backend Soltemp sudah jalan di `https://localhost:44321`.

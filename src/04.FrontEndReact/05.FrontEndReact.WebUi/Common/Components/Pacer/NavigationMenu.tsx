@@ -58,7 +58,7 @@ export function NavigationMenuBadge({
       className={cn(
         "inline-flex shrink-0 items-center justify-center rounded-full font-semibold text-white tabular-nums",
         BADGE[size],
-        disabled ? "bg-primary/40" : "bg-primary",
+        disabled ? "bg-[#93C5FD]" : "bg-primary",
         className,
       )}
     >

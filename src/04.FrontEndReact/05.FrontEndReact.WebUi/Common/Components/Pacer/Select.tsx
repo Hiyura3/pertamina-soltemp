@@ -55,8 +55,10 @@ export function PacerSelect({
         aria-haspopup="listbox"
         disabled={disabled}
         className={cn(
-          "inline-flex h-8 w-full items-center justify-between gap-1.5 rounded-md border border-border bg-card px-2.5 text-sm font-normal outline-none transition-colors hover:bg-muted disabled:pointer-events-none disabled:bg-muted disabled:text-muted-foreground",
-          open && "border-primary ring-3 ring-blue-200",
+          // Trigger memakai face tombol secondary Pacer (system/button.tsx)
+          // termasuk warna disabled per varian.
+          "inline-flex h-8 w-full shrink-0 select-none items-center justify-between gap-1.5 rounded-md border border-zinc-200 bg-white px-2.5 text-[14px] leading-5 font-medium text-zinc-700 shadow-[var(--shadow-button)] outline-none transition-colors hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-900 focus-visible:ring-[3px] focus-visible:ring-[#E4E4E7] disabled:pointer-events-none disabled:border-transparent disabled:bg-zinc-50 disabled:text-zinc-300 disabled:shadow-none",
+          open && "border-[#2563EB] ring-[3px] ring-[#BFDBFE]",
         )}
         onClick={() => setOpen((current) => !current)}
       >
@@ -68,7 +70,7 @@ export function PacerSelect({
         <div
           id={`${id}-menu`}
           role="listbox"
-          className="absolute right-0 z-50 mt-2 min-w-full overflow-hidden rounded-md border border-border bg-card py-1 text-sm shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
+          className="absolute right-0 z-50 mt-2 min-w-full overflow-hidden rounded-md border border-border bg-background py-1 text-[14px] leading-5 shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
         >
           {menuOptions.map((option) => {
             const isSelected = option.id === value;
@@ -79,8 +81,8 @@ export function PacerSelect({
                 role="option"
                 aria-selected={isSelected}
                 className={cn(
-                  "flex w-full items-center gap-2 px-3 py-1.5 text-left whitespace-nowrap hover:bg-muted",
-                  isSelected && "bg-muted",
+                  "flex w-full items-center gap-2 px-3 py-1.5 text-left whitespace-nowrap hover:bg-zinc-100",
+                  isSelected && "bg-zinc-100",
                 )}
                 onClick={() => {
                   onChange(option.id);
@@ -88,11 +90,6 @@ export function PacerSelect({
                 }}
               >
                 <span className="min-w-0 flex-1 truncate">{option.name}</span>
-                {isSelected ? (
-                  <span className="inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    <Icon name="check" size={12} />
-                  </span>
-                ) : null}
               </button>
             );
           })}

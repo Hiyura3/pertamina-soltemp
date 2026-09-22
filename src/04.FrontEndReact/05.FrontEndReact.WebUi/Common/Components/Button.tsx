@@ -17,13 +17,13 @@ export type ButtonVariant =
   | "success";
 export type ButtonSize = "small" | "medium" | "large";
 
-// Ukuran, varian, hover, dan face disabled disalin dari Pacer
-// (pacer-ui-docs/src/components/system/button.tsx) supaya template identik
-// dengan design system, termasuk warna disabled per varian.
+// Ukuran mengikuti FinOne (small h-8/text-xs, medium h-9/text-sm).
+// Varian, hover, dan face disabled tetap dari Pacer — Soltemp menyediakan
+// lebih banyak varian daripada FinOne, dan itu dipertahankan.
 const SIZE: Record<ButtonSize, string> = {
-  small: "h-8 gap-1.5 px-2.5 text-[14px] leading-5",
-  medium: "h-10 gap-1.5 px-3 text-[16px] leading-6",
-  large: "h-11 gap-1.5 px-4 text-[18px] leading-7",
+  small: "h-8 gap-1 px-2.5 text-[12px] leading-4",
+  medium: "h-9 gap-1 px-3 text-[14px] leading-5",
+  large: "h-10 gap-1.5 px-4 text-[16px] leading-6",
 };
 
 const FOCUS_RING: Record<ButtonVariant, string> = {

@@ -1,27 +1,28 @@
 import type { InputHTMLAttributes, ReactNode } from "react";
 import { cn } from "../../lib/utils";
 
-// Skala field, warna fokus, dan face disabled mengikuti Pacer
-// (pacer-ui-docs/src/components/system/text-input.tsx dan checkbox.tsx).
+// Skala field dan gaya label mengikuti FinOne
+// (FinanceOne/src/04.FrontEndReact/.../FieldDefault.tsx): label text-sm muted,
+// kotak field h-9. Warna fokus dan face disabled tetap dari Pacer.
 
 export type FieldSize = "small" | "medium" | "large";
 
 const LABEL: Record<FieldSize, string> = {
   small: "text-[13px] leading-5",
-  medium: "text-[16px] leading-6",
-  large: "text-[18px] leading-7",
+  medium: "text-[14px] leading-5",
+  large: "text-[16px] leading-6",
 };
 
 const BOX: Record<FieldSize, string> = {
   small: "h-8 px-2.5 text-[13px] leading-5",
-  medium: "h-10 px-3 text-[16px] leading-6",
-  large: "h-11 px-4 text-[18px] leading-7",
+  medium: "h-9 px-3 text-[14px] leading-5",
+  large: "h-10 px-4 text-[16px] leading-6",
 };
 
 const SELECT_BOX: Record<FieldSize, string> = {
   small: "h-8 px-2.5 text-[13px] leading-5",
-  medium: "h-10 px-3 text-[16px] leading-6",
-  large: "h-11 px-4 text-[18px] leading-7",
+  medium: "h-9 px-3 text-[14px] leading-5",
+  large: "h-10 px-4 text-[16px] leading-6",
 };
 
 const FIELD_BASE =
@@ -29,7 +30,7 @@ const FIELD_BASE =
 
 function FieldLabel({ label, required, size }: { label: string; required?: boolean; size: FieldSize }) {
   return (
-    <span className={cn("flex items-center gap-1 font-medium", LABEL[size])}>
+    <span className={cn("flex items-center gap-1 text-muted-foreground", LABEL[size])}>
       {label}
       {required ? <span className="text-red-600">*</span> : null}
     </span>
@@ -99,7 +100,7 @@ export function TextFieldAutoGrow({
     <label className="block space-y-1">
       <FieldLabel label={label} required={required} size={size} />
       <textarea
-        className={cn(FIELD_BASE, "min-h-[72px] px-3 py-2 text-[16px] leading-6")}
+        className={cn(FIELD_BASE, "min-h-[72px] px-3 py-2 text-[14px] leading-5")}
         value={value}
         rows={rows}
         readOnly={readOnly}
@@ -224,7 +225,7 @@ export function CheckField({
           </svg>
         </span>
       </span>
-      {label ? <span className={cn("min-w-0 pt-0.5 font-medium", LABEL[size])}>{label}</span> : null}
+      {label ? <span className={cn("min-w-0 pt-0.5", LABEL[size])}>{label}</span> : null}
     </label>
   );
 }

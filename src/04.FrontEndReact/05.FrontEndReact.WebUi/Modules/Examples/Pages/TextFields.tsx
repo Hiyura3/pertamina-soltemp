@@ -35,7 +35,7 @@ export function TextFields() {
         />
         <TextFieldAutoGrow label="Notes" value={notes} onChange={setNotes} />
         <div className="space-y-1">
-          <span className="block text-[16px] leading-6 font-medium">Pacer dropdown</span>
+          <span className="block text-[14px] leading-5 text-muted-foreground">Pacer dropdown</span>
           <PacerSelect
             value={type}
             onChange={setType}
@@ -46,7 +46,7 @@ export function TextFields() {
           />
         </div>
         <div className="space-y-1">
-          <span className="block text-[16px] leading-6 font-medium">Disabled dropdown</span>
+          <span className="block text-[14px] leading-5 text-muted-foreground">Disabled dropdown</span>
           <PacerSelect
             value={type}
             onChange={setType}

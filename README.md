@@ -144,6 +144,24 @@ dotnet new install .
 dotnet new ptmnsln2 --force
 ```
 
+#### 📥 Offline install (ZIP / nupkg)
+
+`scripts/pack-template.sh` writes two artifacts to `pack-output/`:
+
+| Artifact | Purpose | Install |
+|---|---|---|
+| `SolutionTemplate2-Pacer-<date>.zip` | the template contents as a ZIP | extract it, then `dotnet new install <extracted-folder>` |
+| `Pertamina.Templates.SolutionTemplate2.Pacer.<version>.nupkg` | the template package | `dotnet new install <file.nupkg>` |
+
+A raw ZIP is not a template package — `dotnet new install` rejects the `.zip` itself, so
+extract first, or use the `.nupkg`. Once either one is installed, the template is available
+from the Visual Studio **New Project** dialog (search "Solution Template v2 (Pacer)", short
+name `ptmnsln2`) and from the CLI:
+
+```cmd
+dotnet new ptmnsln2 -n NamaAplikasi
+```
+
 ### 🎨 React Pacer (default UI)
 
 The template ships a React frontend that already uses the Pacer skin. After creating a project:
@@ -164,7 +182,7 @@ Switch Blazor ↔ React with `frontend.settings.json` at the solution root:
 }
 ```
 
-Use `"blazor"` to start the MudBlazor WebUi instead. Visual Studio launch profiles: **Local - React (Pacer)** and **Local - Blazor**. Helper script: `scripts/start.sh`. Pack a downloadable ZIP: `scripts/pack-template.sh`.
+Use `"blazor"` to start the MudBlazor WebUi instead. Visual Studio launch profiles: **Local - React (Pacer)** and **Local - Blazor**. Helper script: `scripts/start.sh`. Pack the downloadable ZIP and template package: `scripts/pack-template.sh`.
 
 ### ✅ Prerequisites
 

@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Paket template Soltemp (Pacer) untuk `dotnet new install` dan dialog New Project
+    Visual Studio. Dipakai lewat scripts/pack-template.sh: file ini disalin ke root
+    direktori staging (yang isinya sudah bersih dari bin/obj/node_modules/dist), lalu
+    di-pack dari sana supaya glob relatifnya sederhana dan tidak menembus direktori induk.
+  -->
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>Pertamina.Templates.SolutionTemplate2.Pacer</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Pertamina Persero</Authors>
+    <Description>Pertamina Clean Architecture solution template: Blazor dan React (skin Pacer) dalam satu solution.</Description>
+    <PackageTags>dotnet-new;templates;pertamina;solution;pacer</PackageTags>
+
+    <TargetFramework>net10.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <ContentTargetFolders>content</ContentTargetFolders>
+
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <NoWarn>$(NoWarn);NU5128;NU5100;NU5110;NU5111</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="**/*" />
+    <Content Include="**/*"
+             Exclude="$(MSBuildProjectFile);bin/**/*;obj/**/*;pack-output/**/*;*.nupkg;*.zip" />
+  </ItemGroup>
+
+</Project>

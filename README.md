@@ -191,7 +191,7 @@ Before you begin, ensure you have the following installed:
 *   **[.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)**
 *   **[Node.js 20+](https://nodejs.org/)** (for `04.FrontEndReact`)
 *   **A code editor**:
-    *   [Visual Studio 2026 version 18.3.0](https://visualstudio.microsoft.com/) with the **Node.js development** workload. `05.FrontEndReact.WebUi.esproj` does not pin `Microsoft.VisualStudio.JavaScript.Sdk` to a build number, so Visual Studio uses the SDK from that workload. A pin that is not installed (the old `1.0.2751` is not a published SDK) leaves the project unloaded.
+    *   [Visual Studio 2026 version 18.3.0](https://visualstudio.microsoft.com/). `05.FrontEndReact.WebUi.esproj` pins `Microsoft.VisualStudio.JavaScript.Sdk` to `1.0.6887863`, which is published on NuGet. Omitting the version, or pinning an unpublished build such as `1.0.2751`, makes MSBuild report that the SDK could not be found and leaves the project unloaded.
     *   [VS Code](https://code.visualstudio.com/)
 
 ### ⚙️ Configuration

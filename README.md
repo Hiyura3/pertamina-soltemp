@@ -105,34 +105,34 @@ The solution is organized into three main parts: `Shared`, `BackEnd`, and `Front
 
 ### 📦 Getting the Solution Template
 
-To use this solution template, you first need to install the credential provider and the template itself.
+To use this solution template, install the Azure Artifacts credential provider, then install the template from the Pertamina Azure Artifacts feed. The `Pertamina.*` packages restore from that same feed. This is not the on-premises TFS feed.
 
-1. **Create Personal Access Token (PAT)**
-   - Generate a Personal Access Token (PAT) with the necessary permissions to access the Azure Artifacts feed.
-   - Give checkmark to the scope Read in Packaging section. 
-   - You can create a PAT in your TFS account under Your Avatar > Security > Personal Access Tokens.
-2. **Add pertamina package feed as a nuget package source**
-   ```cmd
-   dotnet nuget add source "http://tfs.pertamina.com:8080/tfs/Enterprise Management/_packaging/pertamina/nuget/v3/index.json" --name pertamina-tfs --allow-insecure-connections 
-   ```
-3. **Update the authentication**
-   ```cmd
-   dotnet nuget update source pertamina-tfs --valid-authentication-types basic --username "pertamina" --password [Your PAT] 
-   ```
-4. **Install the Solution Template**:
-    ```cmd
-    dotnet new install Pertamina.Templates.SolutionTemplate2 --force
+1.  **Install the Azure Artifacts Credential Provider**:
+
+    ```powershell
+    iex "& { $(irm https://aka.ms/install-artifacts-credprovider.ps1) }"
     ```
-5. **Create a new folder**:
+
+2.  **Install the Solution Template**:
+
+    ```cmd
+    dotnet new install Pertamina.Templates.SolutionTemplate2.Pacer --add-source "https://pkgs.dev.azure.com/pertamina/_packaging/pertamina/nuget/v3/index.json" --interactive
+    ```
+
+3.  **Create a new folder**:
+
     ```cmd
     md YourAppName
     ```
-6.  **Navigate to your folder**:
+4.  **Navigate to your folder**:
+
     ```cmd
     cd YourAppName
     ```
-7.  **Create a new project**:
+5.  **Create a new project**:
+
     Navigate to your desired folder and run the following command:
+
     ```cmd
     dotnet new ptmnsln2 --force
     ```

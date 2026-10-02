@@ -1,4 +1,5 @@
-<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2751">
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk">
+  <!-- Do not pin a build number. Visual Studio loads the JavaScript SDK from the installed Node.js workload; a missing pin such as 1.0.2751 leaves this project unloaded. -->
   <PropertyGroup>
     <StartupCommand>npm run dev</StartupCommand>
     <ShouldRunBuildScript>false</ShouldRunBuildScript>

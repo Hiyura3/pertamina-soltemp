@@ -1,5 +1,4 @@
-<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.6887863">
-  <!-- Must be a build published on NuGet. 1.0.2751 was never published, and omitting the version fails with "SDK could not be found" when that workload is not on the MSBuild probe path. -->
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk">
   <PropertyGroup>
     <StartupCommand>npm run dev</StartupCommand>
     <ShouldRunBuildScript>false</ShouldRunBuildScript>
